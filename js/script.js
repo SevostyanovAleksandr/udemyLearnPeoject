@@ -19,7 +19,7 @@
 Проверить, чтобы все работало без ошибок в консоли */
 
 
-const numberOfFilms = +prompt ("Сколько фильмов ты уже посмтрел", "") ;
+const numberOfFilms = prompt ("Сколько фильмов ты уже посмтрел", "") ;
 
 
 const personfMovieDB = {
@@ -28,15 +28,31 @@ const personfMovieDB = {
     actors: {},
     genres: [],
     privat: false
+
 };
-const a  = prompt ("Один из последних просмотренных фильмов", ""),
-b = +prompt ("Какая оценка у этого фимльма", ""),
-c = prompt ("Один из последних просмотренных фильмов", ""),
-d = +prompt ("Какая оценка у этого фимльма", "");
+if ( personfMovieDB.count < 10) {
+    alert ( "Просмотренно довольно мало фильмов");
+}
+else if (personfMovieDB.count >= 10 && personfMovieDB.count <= 30) {
+    alert ("Вы классический зритель");
+}else if (personfMovieDB.count > 30 ) {
+    alert ("Вы киноман");}
+    else { alert("Произошла ошибка");
 
-personfMovieDB.movies[a]=b;
-personfMovieDB.movies[c]=d;
+};
 
+for (let i = 0; i <2; i++){
+    const a  = prompt ("Один из последних просмотренных фильмов", ""),
+          b = prompt ("Какая оценка у этого фимльма", "");
 
-
+if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50){
+    personfMovieDB.movies[a]=b;
+    console.log("done");
+}
+ else {
+    console.log("Error");
+     i--;
+     
+}
+}
 console.log(personfMovieDB);
